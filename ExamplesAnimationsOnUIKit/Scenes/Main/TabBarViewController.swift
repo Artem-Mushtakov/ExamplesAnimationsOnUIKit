@@ -20,7 +20,7 @@ class TabBarViewController: UITabBarController {
     // MARK: - Setup TabBarController
 
     private func addViewControllers() {
-        viewControllers = [ createViewController(for: FirstViewController(), title: "First", titleImage: .actions),
+        viewControllers = [ createViewController(for: ButtonViewController(), title: "First", titleImage: .actions),
                             createViewController(for: SecondViewController(), title: "Second", titleImage: .actions)]
     }
 

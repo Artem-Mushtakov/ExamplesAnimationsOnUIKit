@@ -13,7 +13,7 @@
 		AC0A8BA827E6482D00B3DAA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC0A8BA627E6482D00B3DAA9 /* Main.storyboard */; };
 		AC0A8BAA27E6482E00B3DAA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC0A8BA927E6482E00B3DAA9 /* Assets.xcassets */; };
 		AC0A8BAD27E6482E00B3DAA9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC0A8BAB27E6482E00B3DAA9 /* LaunchScreen.storyboard */; };
-		AC22967F27E6544200BC4FF2 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC22967E27E6544200BC4FF2 /* FirstViewController.swift */; };
+		AC22967F27E6544200BC4FF2 /* ButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC22967E27E6544200BC4FF2 /* ButtonViewController.swift */; };
 		AC22968127E6545400BC4FF2 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC22968027E6545400BC4FF2 /* SecondViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -26,7 +26,7 @@
 		AC0A8BA927E6482E00B3DAA9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC0A8BAC27E6482E00B3DAA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC0A8BAE27E6482E00B3DAA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AC22967E27E6544200BC4FF2 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		AC22967E27E6544200BC4FF2 /* ButtonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonViewController.swift; sourceTree = "<group>"; };
 		AC22968027E6545400BC4FF2 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,7 +63,7 @@
 				AC0A8BB527E6484A00B3DAA9 /* Resources */,
 				AC0A8BB427E6483600B3DAA9 /* App */,
 				AC0A8BB727E648B500B3DAA9 /* Scenes */,
-				AC22967C27E6536400BC4FF2 /* FirstViewControler */,
+				AC22967C27E6536400BC4FF2 /* ButtonViewController */,
 				AC22967D27E6538C00BC4FF2 /* SecondViewController */,
 			);
 			path = ExamplesAnimationsOnUIKit;
@@ -113,12 +113,12 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
-		AC22967C27E6536400BC4FF2 /* FirstViewControler */ = {
+		AC22967C27E6536400BC4FF2 /* ButtonViewController */ = {
 			isa = PBXGroup;
 			children = (
-				AC22967E27E6544200BC4FF2 /* FirstViewController.swift */,
+				AC22967E27E6544200BC4FF2 /* ButtonViewController.swift */,
 			);
-			path = FirstViewControler;
+			path = ButtonViewController;
 			sourceTree = "<group>";
 		};
 		AC22967D27E6538C00BC4FF2 /* SecondViewController */ = {
@@ -204,7 +204,7 @@
 				AC0A8BA127E6482D00B3DAA9 /* AppDelegate.swift in Sources */,
 				AC0A8BA327E6482D00B3DAA9 /* SceneDelegate.swift in Sources */,
 				AC22968127E6545400BC4FF2 /* SecondViewController.swift in Sources */,
-				AC22967F27E6544200BC4FF2 /* FirstViewController.swift in Sources */,
+				AC22967F27E6544200BC4FF2 /* ButtonViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
