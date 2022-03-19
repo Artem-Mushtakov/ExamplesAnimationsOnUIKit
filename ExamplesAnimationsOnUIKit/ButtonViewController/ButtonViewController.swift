@@ -28,6 +28,15 @@ class ButtonViewController: UIViewController {
         return button
     } ()
 
+    private lazy var tapUpDownAnimationButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .systemPink
+        button.layer.cornerRadius = 10
+        button.setTitle("TapUpDownAnimation", for: .normal)
+        button.addTarget(self, action: #selector(startTapUpDownAnimation), for: .touchUpInside)
+        return button
+    } ()
+
     // MARK: - Stack view
 
     private lazy var horizontalStackView: UIStackView = {
@@ -55,17 +64,45 @@ class ButtonViewController: UIViewController {
         print("Started flashing animation for button.")
     }
 
+    // Tab Up/Down Animation
+    @objc private func startTapUpDownAnimation(sender button: UIButton) {
+        button.addTarget(self, action: #selector(animateDown), for: [.touchDown, .touchDragEnter])
+        button.addTarget(self, action: #selector(animateUp), for: .touchUpInside)
+        print("Started tapUpDown animation for button.")
+    }
+
+    @objc private func animateDown(sender: UIButton) {
+        animate(sender, transform: CGAffineTransform.identity.scaledBy(x: 0.95, y: 0.95))
+    }
+
+    @objc private func animateUp(sender: UIButton) {
+        animate(sender, transform: .identity)
+    }
+
+    private func animate(_ button: UIButton, transform: CGAffineTransform) {
+        UIView.animate(withDuration: 0.4,
+                       delay: 0,
+                       usingSpringWithDamping: 0.5,
+                       initialSpringVelocity: 3,
+                       options: [.curveEaseInOut],
+                       animations: {
+            button.transform = transform
+        }, completion: nil)
+    }
+
     // MARK: - Setup layout
 
     func setupSubview() {
         view.addSubview(horizontalStackView)
         horizontalStackView.addArrangedSubview(flashingAnimationButton)
+        horizontalStackView.addArrangedSubview(tapUpDownAnimationButton)
     }
 
     func setupConstraint() {
 
         horizontalStackView.translatesAutoresizingMaskIntoConstraints = false
         flashingAnimationButton.translatesAutoresizingMaskIntoConstraints = false
+        tapUpDownAnimationButton.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
             horizontalStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
@@ -73,6 +110,7 @@ class ButtonViewController: UIViewController {
             horizontalStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
 
             flashingAnimationButton.heightAnchor.constraint(equalToConstant: 50),
+            tapUpDownAnimationButton.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
 }
