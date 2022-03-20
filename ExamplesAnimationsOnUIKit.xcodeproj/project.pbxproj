@@ -28,6 +28,8 @@
 		AC0A8BAE27E6482E00B3DAA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC22967E27E6544200BC4FF2 /* ButtonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonViewController.swift; sourceTree = "<group>"; };
 		AC22968027E6545400BC4FF2 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		AC22968827E7605A00BC4FF2 /* TabUp:Down AnimationButton.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "TabUp:Down AnimationButton.gif"; sourceTree = "<group>"; };
+		AC22968927E7605A00BC4FF2 /* FlashingAnimationButton.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = FlashingAnimationButton.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 		AC0A8BB527E6484A00B3DAA9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				AC22968227E7603300BC4FF2 /* Gif */,
 				AC0A8BA927E6482E00B3DAA9 /* Assets.xcassets */,
 				AC0A8BAE27E6482E00B3DAA9 /* Info.plist */,
 			);
@@ -127,6 +130,23 @@
 				AC22968027E6545400BC4FF2 /* SecondViewController.swift */,
 			);
 			path = SecondViewController;
+			sourceTree = "<group>";
+		};
+		AC22968227E7603300BC4FF2 /* Gif */ = {
+			isa = PBXGroup;
+			children = (
+				AC22968727E7605200BC4FF2 /* Button */,
+			);
+			path = Gif;
+			sourceTree = "<group>";
+		};
+		AC22968727E7605200BC4FF2 /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				AC22968827E7605A00BC4FF2 /* TabUp:Down AnimationButton.gif */,
+				AC22968927E7605A00BC4FF2 /* FlashingAnimationButton.gif */,
+			);
+			path = Button;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
