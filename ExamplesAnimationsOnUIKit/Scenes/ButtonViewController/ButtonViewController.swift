@@ -37,21 +37,33 @@ class ButtonViewController: UIViewController {
         return button
     } ()
 
+    private lazy var upAlphaAnimationButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .orange
+        button.layer.cornerRadius = 10
+        button.setTitle("UpAlphaAnimation", for: .normal)
+        button.addTarget(self, action: #selector(startUpAlphaAnimationButton), for: .touchUpInside)
+        return button
+    } ()
+
     // MARK: - Stack view
 
-    private lazy var horizontalStackView: UIStackView = {
+    private lazy var verticalStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.alignment = .center
         stackView.distribution = .fillEqually
-        stackView.axis = .horizontal
+        stackView.axis = .vertical
         stackView.spacing = 10
         return stackView
     } ()
 
+    private lazy var oneHorizontalStackView = createStackViewHorizontal()
+    private lazy var twoHorizontalStackView = createStackViewHorizontal()
+
     // MARK: - Setup Animations
 
     // Flashing Animation
-    @objc func flashingAnimation(sender button: UIButton) {
+    @objc private func flashingAnimation(sender button: UIButton) {
 
         let flashingAnimation = CABasicAnimation(keyPath: "opacity")
         flashingAnimation.duration = 0.5
@@ -90,27 +102,80 @@ class ButtonViewController: UIViewController {
         }, completion: nil)
     }
 
-    // MARK: - Setup layout
+    // Up Alpha Animation
+    @objc private func startUpAlphaAnimationButton(sender button: UIButton) {
 
-    func setupSubview() {
-        view.addSubview(horizontalStackView)
-        horizontalStackView.addArrangedSubview(flashingAnimationButton)
-        horizontalStackView.addArrangedSubview(tapUpDownAnimationButton)
+        UIView.animateKeyframes(withDuration: 2, delay: 0, animations: {
+
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.25, animations: {
+                button.backgroundColor = .magenta
+            })
+
+            UIView.addKeyframe(withRelativeStartTime: 0.25, relativeDuration: 0.25, animations: {
+                button.alpha = 0.5
+            })
+
+            UIView.addKeyframe(withRelativeStartTime: 0.50, relativeDuration: 0.25, animations: {
+                button.center.y -= 10
+            })
+
+            UIView.addKeyframe(withRelativeStartTime: 0.75, relativeDuration: 0.25, animations: {
+                button.center.y += 10
+                button.alpha = 1
+                button.backgroundColor = .orange
+            })
+        })
+        print("Started up alpha animation for button.")
     }
 
-    func setupConstraint() {
+    // MARK: - Setup layout
 
-        horizontalStackView.translatesAutoresizingMaskIntoConstraints = false
-        flashingAnimationButton.translatesAutoresizingMaskIntoConstraints = false
-        tapUpDownAnimationButton.translatesAutoresizingMaskIntoConstraints = false
+    private func setupSubview() {
+        view.addSubview(verticalStackView)
+        verticalStackView.addArrangedSubview(oneHorizontalStackView)
+        verticalStackView.addArrangedSubview(twoHorizontalStackView)
+
+        oneHorizontalStackView.addArrangedSubview(flashingAnimationButton)
+        oneHorizontalStackView.addArrangedSubview(tapUpDownAnimationButton)
+        twoHorizontalStackView.addArrangedSubview(upAlphaAnimationButton)
+    }
+
+    private func setupConstraint() {
+
+        offTranslatesAutoresizingMask(elements: [oneHorizontalStackView, twoHorizontalStackView,
+                                                verticalStackView, flashingAnimationButton,
+                                                tapUpDownAnimationButton, upAlphaAnimationButton])
 
         NSLayoutConstraint.activate([
-            horizontalStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
-            horizontalStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
-            horizontalStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
+            verticalStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
+            verticalStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
+            verticalStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
 
             flashingAnimationButton.heightAnchor.constraint(equalToConstant: 50),
-            tapUpDownAnimationButton.heightAnchor.constraint(equalToConstant: 50)
+            flashingAnimationButton.widthAnchor.constraint(equalToConstant: 200),
+            tapUpDownAnimationButton.heightAnchor.constraint(equalToConstant: 50),
+            tapUpDownAnimationButton.widthAnchor.constraint(equalToConstant: 200),
+            upAlphaAnimationButton.heightAnchor.constraint(equalToConstant: 50),
+            upAlphaAnimationButton.widthAnchor.constraint(equalToConstant: 200)
         ])
+    }
+
+    // MARK: - Settings function elements
+
+    private func createStackViewHorizontal() -> UIStackView {
+        let stackView: UIStackView = {
+            let stackView = UIStackView()
+            stackView.alignment = .center
+            stackView.distribution = .fillEqually
+            stackView.axis = .horizontal
+            stackView.spacing = 10
+            return stackView
+        } ()
+        return stackView
+    }
+
+    private func offTranslatesAutoresizingMask<T: UIView>(elements: [T]) {
+        // TODO: - Разобраться как убрать ворнинг
+        elements.map { $0.translatesAutoresizingMaskIntoConstraints = false }
     }
 }
