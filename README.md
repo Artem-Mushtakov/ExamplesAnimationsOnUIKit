@@ -7,6 +7,10 @@
 ____
 ## Кнопки/Button
 
+**ℹ️  Пример использования функций:**
+```Swift
+button.addTarget(self, action: #selector(Здесь функция анимации кнопки), for: .touchUpInside)
+```
 * :white_check_mark: Flashing Animation
 
 ![image](https://github.com/Artem-Mushtakov/ExamplesAnimationsOnUIKit/blob/develop/ExamplesAnimationsOnUIKit/Resources/Gif/Button/FlashingAnimationButton.gif)
