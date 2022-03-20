@@ -63,8 +63,6 @@
 				AC0A8BB527E6484A00B3DAA9 /* Resources */,
 				AC0A8BB427E6483600B3DAA9 /* App */,
 				AC0A8BB727E648B500B3DAA9 /* Scenes */,
-				AC22967C27E6536400BC4FF2 /* ButtonViewController */,
-				AC22967D27E6538C00BC4FF2 /* SecondViewController */,
 			);
 			path = ExamplesAnimationsOnUIKit;
 			sourceTree = "<group>";
@@ -101,6 +99,8 @@
 			isa = PBXGroup;
 			children = (
 				AC0A8BB827E6499400B3DAA9 /* Main */,
+				AC22967C27E6536400BC4FF2 /* ButtonViewController */,
+				AC22967D27E6538C00BC4FF2 /* SecondViewController */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
