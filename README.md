@@ -7,9 +7,9 @@
 ____
 ## Кнопки/Button
 
+* :white_check_mark: Flashing Animation
 
 ```Swift
-// Flashing Animation
     @objc func flashingAnimation(sender button: UIButton) {
 
         let flashingAnimation = CABasicAnimation(keyPath: "opacity")
@@ -22,8 +22,11 @@ ____
         button.layer.add(flashingAnimation, forKey: nil)
         print("Started flashing animation for button.")
     }
-    
-  // Tab Up/Down Animation
+```
+
+* :white_check_mark: Tab Up/Down Animation
+
+```Swift
     @objc private func startTapUpDownAnimation(sender button: UIButton) {
         button.addTarget(self, action: #selector(animateDown), for: [.touchDown, .touchDragEnter])
         button.addTarget(self, action: #selector(animateUp), for: .touchUpInside)
