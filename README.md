@@ -9,6 +9,8 @@ ____
 
 * :white_check_mark: Flashing Animation
 
+![image]( https://github.com/Artem-Mushtakov/ExamplesAnimationsOnUIKit/blob/develop/ExamplesAnimationsOnUIKit/Resources/Gif/Button/FlashingAnimationButton.gif)
+
 ```Swift
     @objc func flashingAnimation(sender button: UIButton) {
 
@@ -26,6 +28,7 @@ ____
 
 * :white_check_mark: Tab Up/Down Animation
 
+![image]( https://github.com/Artem-Mushtakov/ExamplesAnimationsOnUIKit/blob/develop/ExamplesAnimationsOnUIKit/Resources/Gif/Button/TabUp:Down%20AnimationButton.gif)
 ```Swift
     @objc private func startTapUpDownAnimation(sender button: UIButton) {
         button.addTarget(self, action: #selector(animateDown), for: [.touchDown, .touchDragEnter])
